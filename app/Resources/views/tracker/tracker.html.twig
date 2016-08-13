@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <nav class="header">
+        <span class="dog-name">{{ dog_name }}</span>
+        <button class="back-btn btn btn-default">Pick other dog</button>
+    </nav>
+
+    <div class="container">
+        <div class="tracker-btn select-btn poop-btn"></div>
+        <div class="tracker-btn select-btn pee-btn"></div>
+        <button class="btn tracker-btn btn-success">Save</button>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="css/tracker.css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="js/tracker.js"></script>
+{% endblock %}

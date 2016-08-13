@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="element">Enter your furbaby's name:</div>
+    <input class="element name-input" type="text">
+    <button class="element go-btn btn btn-success">GO</button>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="css/index.css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="js/index.js"></script>
+{% endblock %}

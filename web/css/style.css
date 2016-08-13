@@ -1,0 +1,31 @@
+html, body, .container{
+    height: 100%;
+}
+
+.header{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    padding: 10px 20px;
+
+    display: flex;
+    justify-content: space-between;
+
+    background: #efe;
+}
+
+.container{
+    padding: 5px;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.element{
+    margin: 15px;
+}

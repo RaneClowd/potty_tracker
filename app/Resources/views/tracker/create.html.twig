@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="element">"<span class="name">{{ dog_name }}</span>" wasn't found, start a new log?</div>
+    <button class="element go-btn btn btn-success">Yes</button>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="js/create.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="css/create.css">
+{% endblock %}

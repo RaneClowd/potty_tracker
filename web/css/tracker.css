@@ -1,0 +1,35 @@
+.dog-name{
+    font-size: 3em;
+}
+
+.tracker-btn{
+    margin: 15px;
+
+    min-width:200px;
+    min-height: 80px;
+    max-height: 120px;
+    flex: 1;
+}
+
+.select-btn{
+    background: #eee;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    padding: 10px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 80%;
+}
+
+.select-btn.selected{
+    background-color: #afa;
+}
+
+.poop-btn{
+    background-image: url('../images/poop.png');
+}
+
+.pee-btn{
+    background-image: url('../images/pee.png');
+}
