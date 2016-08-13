@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="element">"<span class="name">{{ dog_name }}</span>" wasn't found, start a new log?</div>
+    <div class="element">"<span class="name">{{ dog_name|capitalize }}</span>" wasn't found, start a new log?</div>
     <button class="element go-btn btn btn-success">Yes</button>
 {% endblock %}
 

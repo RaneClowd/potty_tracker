@@ -15,6 +15,8 @@ class TrackerController extends Controller
      */
     public function trackerAction(Request $request, $name)
     {
+        $name = strtolower($name);
+
         $em = $this->getDoctrine()->getManager();
 
         $dog = $em->getRepository('AppBundle:Dog')->findByName($name);
