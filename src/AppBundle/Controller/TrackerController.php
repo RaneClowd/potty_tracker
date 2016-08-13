@@ -3,10 +3,13 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use AppBundle\Entity\Dog;
+use AppBundle\Entity\PottyTime;
+use Symfony\Component\HttpFoundation\Response;
 
 class TrackerController extends Controller
 {
@@ -45,5 +48,22 @@ class TrackerController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('tracker', [ 'name' => $name ]);
+    }
+
+    /**
+     * @Route("/new_entry", name="new_entry")
+     * @Method({"POST"})
+     */
+    public function entryAction(Request $request)
+    {
+        $entry = new PottyTime();
+        $entry->setIsPee($request->get('is_pee') === 'true');
+        $entry->setIsPoop($request->get('is_poop') === 'true');
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($entry);
+        $em->flush();
+
+        return new Response('done');
     }
 }
