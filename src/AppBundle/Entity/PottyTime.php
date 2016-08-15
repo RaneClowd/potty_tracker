@@ -35,6 +35,11 @@ class PottyTime
     private $isPee;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Dog")
+     */
+    private $dog;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -85,5 +90,21 @@ class PottyTime
     public function __construct()
     {
         $this->timestamp = new \DateTime("now");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDog()
+    {
+        return $this->dog;
+    }
+
+    /**
+     * @param mixed $dog
+     */
+    public function setDog($dog)
+    {
+        $this->dog = $dog;
     }
 }

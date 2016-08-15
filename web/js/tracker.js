@@ -9,12 +9,16 @@ $(function (){
 
     $('.select-btn').click(function () {
         var $btn = $(this),
-            btns_selected = false;
+            btns_selected;
 
-        $(this).toggleClass('selected');
+        $btn.toggleClass('selected');
         btns_selected = $('.select-btn.selected').length > 0;
 
         $('.save-btn').prop('disabled', !btns_selected);
+    });
+
+    $('.list-btn').click(function () {
+        location.href = '/today';
     });
 
     $('.save-btn').click(function () {

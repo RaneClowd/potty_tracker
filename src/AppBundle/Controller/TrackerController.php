@@ -22,15 +22,37 @@ class TrackerController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $dog = $em->getRepository('AppBundle:Dog')->findByName($name);
+        $dog = $em->getRepository('AppBundle:Dog')->findOneByName($name);
         $context = [
             'dog_name' => $name
         ];
 
         if ($dog) {
+            $request->getSession()->set('dog_id', $dog->getId());
+
             return $this->render('tracker/tracker.html.twig', $context);
         } else {
             return $this->render('tracker/create.html.twig', $context);
+        }
+    }
+
+    /**
+     * @Route("/today", name="today")
+     */
+    public function todayAction(Request $request)
+    {
+        $dog_id = $request->getSession()->get('dog_id');
+
+        $em = $this->getDoctrine()->getManager();
+        $dog = $em->getRepository('AppBundle:Dog')->findById($dog_id);
+        $context = [
+
+        ];
+
+        if ($dog) {
+            return $this->render('tracker/today.html.twig', $context);
+        } else {
+            return new Response('dog not found');
         }
     }
 
@@ -56,11 +78,12 @@ class TrackerController extends Controller
      */
     public function entryAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+
         $entry = new PottyTime();
         $entry->setIsPee($request->get('is_pee') === 'true');
         $entry->setIsPoop($request->get('is_poop') === 'true');
 
-        $em = $this->getDoctrine()->getManager();
         $em->persist($entry);
         $em->flush();
 

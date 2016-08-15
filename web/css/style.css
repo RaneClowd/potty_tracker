@@ -2,6 +2,11 @@ html, body, .container{
     height: 100%;
 }
 
+.header, .header-left{
+    display: flex;
+    justify-content: space-between;
+}
+
 .header{
     position: absolute;
     left: 0;
@@ -10,10 +15,11 @@ html, body, .container{
 
     padding: 10px 20px;
 
-    display: flex;
-    justify-content: space-between;
-
     background: #efe;
+}
+
+.header .element{
+    margin: 0px 15px;
 }
 
 .container{
